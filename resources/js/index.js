@@ -46,9 +46,11 @@ const result = document.getElementById('resultText');
 const calculation = document.getElementById('calculationText');
 
 function wrightNum(num) {
-    calculation.textContent += num;
-    newTerm += num;
-    console.log(newTerm);
+    if (!(newTerm.includes('.') && num === '.')) {
+        calculation.textContent += num;
+        newTerm += num;
+        console.log(newTerm);
+    }
 }
 
 function updateResult(addThis, updateBtn) {
