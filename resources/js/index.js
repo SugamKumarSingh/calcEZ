@@ -45,33 +45,6 @@ document.getElementById('resultText').addEventListener('mouseleave', function ()
 const result = document.getElementById('resultText');
 const calculation = document.getElementById('calculationText');
 
-// function formula() {
-//     var calMath = '';
-//     calculation.textContent.split('').map(element => {
-//         if (element === '%') {
-//             calMath += '';
-//         }
-//         if (element === 'x') {
-//             calMath += '*';
-//         } else {
-//             calMath += element;
-//         }
-//     });
-//     return calMath;
-// }
-
-
-// function calc(formula) {
-//     if (['+', '-', "x", '/'].includes(formula[formula.length - 1])) {
-//         formula = formula.slice(0, formula.length - 1);
-//     }
-//     return eval(formula);
-// }
-
-// function wrightNum(num) {
-//     calculation.textContent += num;
-//     newTerm += num;
-// }
 function wrightNum(num) {
     calculation.textContent += num;
     newTerm += num;
@@ -101,22 +74,6 @@ function op(btn) {
     if (calculation.textContent.length !== 0) {
         if (!['+', '-', "x", '/'].includes(calculation.textContent[calculation.textContent.length - 1])) {
             updateResult(newTerm, btn);
-            // switch (lastBtn) {
-            //     case "+":
-            //         result.textContent = parseFloat(result.textContent) + parseFloat(newTerm);
-            //         break;
-            //     case "-":
-            //         result.textContent = parseFloat(result.textContent) - parseFloat(newTerm);
-            //         break;
-            //     case "x":
-            //         result.textContent = parseFloat(result.textContent) * parseFloat(newTerm);
-            //         break;
-            //     case "/":
-            //         result.textContent = parseFloat(result.textContent) / parseFloat(newTerm);
-            //         break;
-            // }
-            // newTerm = "";
-            // lastBtn = btn;
             calculation.textContent += btn;
         } else {
             calculation.textContent = calculation.textContent.slice(0, calculation.textContent.length - 1);
@@ -131,70 +88,10 @@ function percent(btn) {
         if (btn == "%") {
             percentValue = (parseFloat(result.textContent) * parseFloat(newTerm)) / 100;
             updateResult(percentValue, btn);
-            // switch (lastBtn) {
-            //     case "+":
-            //         result.textContent = parseFloat(result.textContent) + parseFloat(percentValue);
-            //         break;
-            //     case "-":
-            //         result.textContent = parseFloat(result.textContent) - parseFloat(percentValue);
-            //         break;
-            //     case "*":
-            //         result.textContent = parseFloat(result.textContent) * parseFloat(percentValue);
-            //         break;
-            //     case "/":
-            //         result.textContent = parseFloat(result.textContent) / parseFloat(percentValue);
-            //         break;
-            // }
-            // newTerm = "";
-            // lastBtn = btn;
             calculation.textContent += btn;
         }
     }
 }
-
-// function op(btn) {
-//     if (calculation.textContent.length !== 0) {
-//         newTerm = "";
-//         if (btn == "+" || btn == "-" || btn == "x" || btn == "/") {
-//             lastBtn = btn;
-//         }
-//         if (!['+', '-', "x", '/'].includes(calculation.textContent[calculation.textContent.length - 1])) {
-//             result.textContent = calc(formula());
-//             calculation.textContent += btn;
-//         } else {
-//             // result.textContent =  calc(formula());
-//             calculation.textContent = calculation.textContent.slice(0, formula.length - 1);
-//             calculation.textContent += btn;
-//         }
-//     }
-// }
-
-// function percent(btn) {
-//     if (calculation.textContent.length !== 0) {
-//         if (btn == "%") {
-//             percentValue = (result.textContent * newTerm) / 100;
-//             switch (lastBtn) {
-//                 case "+":
-//                     result.textContent -= newTerm;
-//                     result.textContent += percentValue;
-//                     break;
-//                 case "-":
-//                     result.textContent += newTerm;
-//                     result.textContent -= percentValue;
-//                     break;
-//                 case "*":
-//                     result.textContent /= newTerm;
-//                     result.textContent *= percentValue;
-//                     break;
-//                 case "/":
-//                     result.textContent *= newTerm;
-//                     result.textContent /= percentValue;
-//                     break;
-//             }
-//         }
-//     }
-// }
-
 
 document.getElementById('num0').addEventListener('click', function () {
     wrightNum(0)
@@ -257,28 +154,8 @@ document.getElementById('dot').addEventListener('click', function () {
 
 document.getElementById('equal').addEventListener('click', function () {
     updateResult(newTerm, "=");
-    // switch (lastBtn) {
-    //     case "+":
-    //         result.textContent = parseFloat(result.textContent) + parseFloat(newTerm);
-    //         break;
-    //     case "-":
-    //         result.textContent = parseFloat(result.textContent) - parseFloat(newTerm);
-    //         break;
-    //     case "x":
-    //         result.textContent = parseFloat(result.textContent) * parseFloat(newTerm);
-    //         break;
-    //     case "/":
-    //         result.textContent = parseFloat(result.textContent) / parseFloat(newTerm);
-    //         break;
-    // }
-    // newTerm = "";
-    // lastBtn = "=";
     calculation.textContent = result.textContent;
 });
-// document.getElementById('equal').addEventListener('click', function () {
-//     result.textContent = (calc(formula()).length !== 0) ? calc(formula()) : result.textContent;
-//     calculation.textContent = result.textContent;
-// });
 
 const tooltip = document.getElementsByClassName('tooltip')[0];
 
